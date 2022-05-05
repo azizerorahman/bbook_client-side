@@ -12,13 +12,13 @@ const Book = ({ book }) => {
                 <img className="card-img-top" src={image} alt={name} />
                 <Card.Body className='p-0'>
                     <Card.Title className='fs-4 fw-bold mt-4 mb-0 f-merriweather'>{name}</Card.Title>
-                    <p className='my-1'><span className='gray-color'>Supplier</span> • {supplier}</p>
+                    <p className='my-1'><span className='lightgray-color'>Supplier</span> • {supplier}</p>
                     <p className='f-inter book-description py-3'>{description}</p>
                 </Card.Body>
                 <Card.Footer className='p-0 bg-transparent border-0'>
                     <div className='d-flex justify-content-between fs-3 f-rasa'>
-                        <p className='m-0 gray-color'>Price: <span className='primary-color'>${price}</span></p>
-                        <p className='m-0 gray-color'>Quantity: <span className='primary-color'>{quantity}</span></p>
+                        <p className='m-0 lightgray-color'>Price: <span className='primary-color'>${price}</span></p>
+                        <p className='m-0 lightgray-color'>Quantity: <span className='primary-color'>{quantity}</span></p>
                     </div>
                     <Link to={`/book/${_id}`}>
                         <Button className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Stock Update</Button>
