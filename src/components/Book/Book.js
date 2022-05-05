@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import './Book.css'
 
 const Book = ({ book }) => {
-    const { image, name, description, price, quantity, supplier } = book;
+    const { _id, image, name, description, price, quantity, supplier } = book;
+
     return (
         <Col>
             <Card className="h-100 p-4 book">
@@ -19,8 +20,8 @@ const Book = ({ book }) => {
                         <p className='m-0 gray-color'>Price: <span className='primary-color'>${price}</span></p>
                         <p className='m-0 gray-color'>Quantity: <span className='primary-color'>{quantity}</span></p>
                     </div>
-                    <Link to='/login'>
-                        <Button className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Update</Button>
+                    <Link to={`/book/${_id}`}>
+                        <Button className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Stock Update</Button>
                     </Link>
                 </Card.Footer>
             </Card>
