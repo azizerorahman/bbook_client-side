@@ -1,0 +1,11 @@
+.banner {
+    background: #FBF4E2;
+    border-radius: 50px;
+    background-image: url('../../images/banner-element.svg');
+    background-repeat: no-repeat;
+    background-position-x: 50px;
+}
+
+.banner-text {
+    font-size: 18px;
+}
