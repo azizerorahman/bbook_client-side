@@ -17,9 +17,6 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    // display error
-
-
     // loading spinner
     if (loading) {
         return <Loading></Loading>
@@ -34,6 +31,7 @@ const SignUp = () => {
 
         createUserWithEmailAndPassword(email, password);
         if (error) {
+            // display error
             toast.error(error);
         }
         else {
@@ -63,9 +61,7 @@ const SignUp = () => {
                     <Button className='border-0 w-100 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Sign up</Button>
                 </Form>
             </div>
-            <ToastContainer
-                pauseOnFocusLoss={false}
-            ></ToastContainer>
+            <ToastContainer />
         </section>
     );
 };
