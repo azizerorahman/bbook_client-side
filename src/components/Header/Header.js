@@ -18,10 +18,10 @@ const Header = () => {
         <header>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home" className='py-1'>
+                    <Link to='/' className="navbar-brand py-1">
                         <img className='navbar-logo' src={logo} alt="logo" />
                         <p className='m-0 primary-color tag-line'>A warehouse of <span className='secondary-color'>books.</span></p>
-                    </Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">

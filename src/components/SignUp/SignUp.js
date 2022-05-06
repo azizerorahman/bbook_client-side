@@ -1,36 +1,46 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const SignUp = () => {
+    const navigate = useNavigate();
 
     const [
         createUserWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [
-        updateProfile,
-        updating,
-        updateError
-    ] = useUpdateProfile(auth);
+    // display error
 
 
-    const handleSignUp = async e => {
+    // loading spinner
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    // sign up
+    const handleSignUp = e => {
         e.preventDefault();
 
-        const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        await createUserWithEmailAndPassword(email, password);
-        await updateProfile({ displayName: name });
+        createUserWithEmailAndPassword(email, password);
+        if (error) {
+            toast.error(error);
+        }
+        else {
+            navigate('/home');
+        }
     }
+
     return (
         <section className='my-5 d-flex justify-content-center f-opensans'>
             <div className='w-50 p-5 section-box'>
@@ -53,6 +63,9 @@ const SignUp = () => {
                     <Button className='border-0 w-100 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Sign up</Button>
                 </Form>
             </div>
+            <ToastContainer
+                pauseOnFocusLoss={false}
+            ></ToastContainer>
         </section>
     );
 };
