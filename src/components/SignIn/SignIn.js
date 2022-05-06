@@ -32,7 +32,7 @@ const SignIn = () => {
     }
 
     // loading spinner
-    if (loading) {
+    if (loading || sending) {
         return <Loading></Loading>
     }
 
