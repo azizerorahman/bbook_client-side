@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import useBook from '../../hooks/useBook';
 
 const StockUpdate = () => {
