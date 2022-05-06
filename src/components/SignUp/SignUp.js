@@ -17,6 +17,11 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    // display error
+    if (error) {
+        toast.error(error);
+    }
+
     // loading spinner
     if (loading) {
         return <Loading></Loading>
@@ -29,13 +34,15 @@ const SignUp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        createUserWithEmailAndPassword(email, password);
-        if (error) {
-            // display error
-            toast.error(error);
+        const test = /.{8,}/.test(password);
+
+        if (test) {
+            createUserWithEmailAndPassword(email, password);
+            navigate('/home');
         }
         else {
-            navigate('/home');
+            toast.error('Please enter at least 8 characters or numbers in the password.')
+            return;
         }
     }
 

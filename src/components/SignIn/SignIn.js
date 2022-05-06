@@ -27,6 +27,8 @@ const SignIn = () => {
         sending
     ] = useSendPasswordResetEmail(auth);
 
+    let errorMessage;
+
     if (user) {
         navigate(from, { replace: true });
     }
@@ -38,7 +40,7 @@ const SignIn = () => {
 
     // display error
     if (error) {
-        toast.error(error);
+        errorMessage = error.message;
     }
 
     // sign in
@@ -76,7 +78,8 @@ const SignIn = () => {
                     <Form.Group className="mb-1" controlId="formBasicPassword">
                         <Form.Control className='input-field py-2' name="password" type="password" placeholder="Password" required />
                     </Form.Group>
-                    <div className='d-flex justify-content-end'>
+                    <div className='d-flex justify-content-between'>
+                        <p className='text-danger mb-0 small-text'>{errorMessage}</p>
                         <Button onClick={handleResetPassword} className='border-0 p-0 reset-button' variant="link">Reset Password</Button>
                     </div>
                     <Button className='border-0 w-100 py-2 px-4 mt-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Sign in</Button>
