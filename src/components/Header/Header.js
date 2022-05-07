@@ -18,9 +18,9 @@ const Header = () => {
         <header>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Link to='/' className="navbar-brand py-1">
+                    <Link to='/' className="navbar-brand py-1 d-flex flex-column align-items-start">
                         <img className='navbar-logo' src={logo} alt="logo" />
-                        <p className='m-0 primary-color tag-line'>A warehouse of <span className='secondary-color'>books.</span></p>
+                        <span className='m-0 primary-color tag-line'>A warehouse of <span className='secondary-color'>books.</span></span>
                     </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">

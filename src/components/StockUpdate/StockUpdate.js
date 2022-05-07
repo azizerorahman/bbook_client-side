@@ -6,6 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from '@ergisgjergji/react-confirm-alert';
 import '@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css';
+import ManageInventoriesButton from '../ManageInventoriesButton/ManageInventoriesButton';
 
 const StockUpdate = () => {
     const [book] = useBook();
@@ -100,50 +101,53 @@ const StockUpdate = () => {
         }
     }
     return (
-        <Container className='my-4'>
-            <div className='d-flex gap-4 align-items-center'>
-                <div>
-                    <img src={image} alt={name} />
+        <section>
+            <Container className='my-4'>
+                <div className='d-flex gap-4 align-items-center'>
+                    <div>
+                        <img src={image} alt={name} />
+                    </div>
+                    <div>
+                        <h3 className='fw-bold mb-0 f-merriweather'>{name}</h3>
+                        <p className='f-inter book-description py-3'>{description}</p>
+                        <Table striped bordered className='mb-4'>
+                            <tbody>
+                                <tr>
+                                    <td>Book ID</td>
+                                    <td>{_id}</td>
+                                </tr>
+                                <tr>
+                                    <td>Price</td>
+                                    <td>{price} $</td>
+                                </tr>
+                                <tr>
+                                    <td>Quantity</td>
+                                    <td>{quantity}</td>
+                                </tr>
+                                <tr>
+                                    <td>Sold</td>
+                                    <td>{sold}</td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier</td>
+                                    <td>{supplier}</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                        <button onClick={handleDeliveredButton} className='border-0 w-100 mb-4 text-white py-2 px-4 rounded-3 fw-bold f-merriweather primary-bg delivered-button'>Delivered</button>
+                        <h5 className='fw-bold fs-6 f-inter'>Restock {name}</h5>
+                        <Form onSubmit={handleRestock}>
+                            <Form.Group className="mb-3">
+                                <Form.Control className='input-field py-2' name="amount" type="number" placeholder="Amount" required />
+                            </Form.Group>
+                            <button className='border-0 text-white w-100 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Restock</button>
+                        </Form>
+                    </div>
                 </div>
-                <div>
-                    <h3 className='fw-bold mb-0 f-merriweather'>{name}</h3>
-                    <p className='f-inter book-description py-3'>{description}</p>
-                    <Table striped bordered className='mb-4'>
-                        <tbody>
-                            <tr>
-                                <td>Book ID</td>
-                                <td>{_id}</td>
-                            </tr>
-                            <tr>
-                                <td>Price</td>
-                                <td>{price} $</td>
-                            </tr>
-                            <tr>
-                                <td>Quantity</td>
-                                <td>{quantity}</td>
-                            </tr>
-                            <tr>
-                                <td>Sold</td>
-                                <td>{sold}</td>
-                            </tr>
-                            <tr>
-                                <td>Supplier</td>
-                                <td>{supplier}</td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                    <button onClick={handleDeliveredButton} className='border-0 w-100 mb-4 text-white py-2 px-4 rounded-3 fw-bold f-merriweather primary-bg delivered-button'>Delivered</button>
-                    <h5 className='fw-bold fs-6 f-inter'>Restock {name}</h5>
-                    <Form onSubmit={handleRestock}>
-                        <Form.Group className="mb-3">
-                            <Form.Control className='input-field py-2' name="amount" type="number" placeholder="Amount" required />
-                        </Form.Group>
-                        <button className='border-0 w-100 text-white py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Restock</button>
-                    </Form>
-                </div>
-            </div>
-            <ToastContainer />
-        </Container>
+                <ToastContainer />
+            </Container>
+            <ManageInventoriesButton></ManageInventoriesButton>
+        </section>
     );
 };
 

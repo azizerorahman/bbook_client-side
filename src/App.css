@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&family=Rasa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins&family=Rasa&display=swap');
 
+/* colors */
 .primary-color {
     color: #463C74;
 }
@@ -8,14 +9,19 @@
     color: #B4D51E;
 }
 
-.lightgray-color {
+.lightergray-color {
     color: #bdbdbd
+}
+
+.lightgray-color {
+    color: #828282;
 }
 
 .gray-color {
     color: #666666;
 }
 
+/* background colors */
 .primary-bg {
     background-color: #463C74;
 }
@@ -24,6 +30,7 @@
     background-color: #B4D51E;
 }
 
+/* fonts */
 .f-merriweather {
     font-family: 'Merriweather', serif;
 }
@@ -40,6 +47,11 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.f-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* button */
 .button:hover {
     background-color: #B4D51E;
 }
@@ -57,6 +69,7 @@
     box-shadow: 0 0 0 0.25rem rgb(180 213 30 / 25%);
 }
 
+/* input field */
 .input-field {
     border: 2px solid #F5F5F5;
     border-radius: 5px;

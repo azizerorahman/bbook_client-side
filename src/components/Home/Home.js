@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, Container, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row } from 'react-bootstrap';
 import useBooks from '../../hooks/useBooks';
 import Banner from '../Banner/Banner';
 import Book from '../Book/Book';
+import ManageInventoriesButton from '../ManageInventoriesButton/ManageInventoriesButton';
 
 const Home = () => {
     const [books] = useBooks();
@@ -22,11 +22,7 @@ const Home = () => {
                         )
                     }
                 </Row>
-                <div className='d-flex justify-content-center pt-4'>
-                    <Link to='/manage-inventories' >
-                        <Button className='border-0 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Manage Inventories</Button>
-                    </Link>
-                </div>
+                <ManageInventoriesButton></ManageInventoriesButton>
             </section>
         </Container>
     );

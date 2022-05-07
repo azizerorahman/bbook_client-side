@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import RequireAuth from './components/RequireAuth/RequireAuth';
@@ -23,7 +24,13 @@ function App() {
         <Route path='/sign-in' element={<SignIn></SignIn>}></Route>
         <Route path='/sign-up' element={<SignUp></SignUp>}></Route>
         <Route path='/terms-and-conditions' element={<TermsAndConditions></TermsAndConditions>}></Route>
+        <Route path='/manage-inventories' element={
+          <RequireAuth>
+
+          </RequireAuth>
+        }></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
