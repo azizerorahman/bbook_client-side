@@ -1,0 +1,16 @@
+.delivered-button:hover {
+    background-color: #463C74;
+}
+
+.delivered-button:active {
+    background-color: #463C74;
+}
+
+.delivered-button:focus {
+    background-color: #463c74;
+    box-shadow: 0 0 0 0.25rem rgb(70 60 116 / 25%);
+}
+
+.delivered-button:active:focus {
+    box-shadow: 0 0 0 0.25rem rgb(70 60 116 / 25%);
+}
