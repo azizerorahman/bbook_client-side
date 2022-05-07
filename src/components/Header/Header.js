@@ -1,6 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -25,19 +25,17 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
+                            <Link className='nav-link' to="/">Home</Link>
+                            <Link className='nav-link' to="/blogs">Blogs</Link>
                         </Nav>
                         {
                             user ?
-                                <Button onClick={handleSignOut} className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Sign Out</Button>
+                                <Nav>
+                                    <Link className='nav-link' to="/manage-inventories">Manage Inventory</Link>
+                                    <Link className='nav-link' to="/add-item">Add Item</Link>
+                                    <Link className='nav-link' to="/my-items">My Items</Link>
+                                    <Button onClick={handleSignOut} className='border-0 ms-3 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Sign Out</Button>
+                                </Nav>
                                 :
                                 <Nav>
                                     <Link className='nav-link' to="/sign-in">Sign in</Link>

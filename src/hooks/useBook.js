@@ -6,7 +6,7 @@ const useBook = () => {
 
     const [book, setBook] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/book/${id}`;
+        const url = `http://localhost:5000/inventory/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data));

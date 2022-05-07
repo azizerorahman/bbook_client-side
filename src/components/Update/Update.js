@@ -1,14 +1,14 @@
 import React from 'react';
 import { Container, Form, Table } from 'react-bootstrap';
 import useBook from '../../hooks/useBook';
-import './StockUpdate.css'
+import './Update.css'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from '@ergisgjergji/react-confirm-alert';
 import '@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css';
 import ManageInventoriesButton from '../ManageInventoriesButton/ManageInventoriesButton';
 
-const StockUpdate = () => {
+const Update = () => {
     const [book] = useBook();
     const { _id, image, name, description, price, quantity, supplier, sold } = book;
 
@@ -28,7 +28,7 @@ const StockUpdate = () => {
                         const updatedInfo = { updatedQuantity, updatedSold };
 
                         // send updated data to server
-                        const url = `http://localhost:5000/book/${_id}`;
+                        const url = `http://localhost:5000/inventory/${_id}`;
                         fetch(url, {
                             method: 'PUT',
                             headers: {
@@ -53,7 +53,7 @@ const StockUpdate = () => {
     }
 
     // restock button
-    const handleRestock = e => {
+    const handleRestockButton = e => {
         e.preventDefault();
 
         const restockAmount = e.target.amount.value;
@@ -74,7 +74,7 @@ const StockUpdate = () => {
                             const updatedInfo = { updatedQuantity, updatedSold };
 
                             // send updated data to server
-                            const url = `http://localhost:5000/book/${_id}`;
+                            const url = `http://localhost:5000/inventory/${_id}`;
                             fetch(url, {
                                 method: 'PUT',
                                 headers: {
@@ -101,7 +101,7 @@ const StockUpdate = () => {
         }
     }
     return (
-        <section>
+        <section className='pb-5'>
             <Container className='my-4'>
                 <div className='d-flex gap-4 align-items-center'>
                     <div>
@@ -113,7 +113,7 @@ const StockUpdate = () => {
                         <Table striped bordered className='mb-4'>
                             <tbody>
                                 <tr>
-                                    <td>Book ID</td>
+                                    <td>Book Id</td>
                                     <td>{_id}</td>
                                 </tr>
                                 <tr>
@@ -136,7 +136,7 @@ const StockUpdate = () => {
                         </Table>
                         <button onClick={handleDeliveredButton} className='border-0 w-100 mb-4 text-white py-2 px-4 rounded-3 fw-bold f-merriweather primary-bg delivered-button'>Delivered</button>
                         <h5 className='fw-bold fs-6 f-inter'>Restock {name}</h5>
-                        <Form onSubmit={handleRestock}>
+                        <Form onSubmit={handleRestockButton}>
                             <Form.Group className="mb-3">
                                 <Form.Control className='input-field py-2' name="amount" type="number" placeholder="Amount" required />
                             </Form.Group>
@@ -144,11 +144,11 @@ const StockUpdate = () => {
                         </Form>
                     </div>
                 </div>
-                <ToastContainer />
             </Container>
             <ManageInventoriesButton></ManageInventoriesButton>
+            <ToastContainer />
         </section>
     );
 };
 
-export default StockUpdate;
+export default Update;

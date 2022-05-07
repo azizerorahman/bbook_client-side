@@ -20,8 +20,8 @@ const Book = ({ book }) => {
                         <p className='m-0 lightergray-color'>Price: <span className='primary-color'>${price}</span></p>
                         <p className='m-0 lightergray-color'>Quantity: <span className='primary-color'>{quantity}</span></p>
                     </div>
-                    <Link to={`/book/${_id}`}>
-                        <Button className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Stock Update</Button>
+                    <Link to={`/inventory/${_id}`}>
+                        <Button className='border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button'>Update</Button>
                     </Link>
                 </Card.Footer>
             </Card>

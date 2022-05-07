@@ -6,8 +6,9 @@ import Home from './components/Home/Home';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
-import StockUpdate from './components/StockUpdate/StockUpdate';
+import Update from './components/Update/Update';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -16,9 +17,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
-        <Route path='/book/:id' element={
+        <Route path='/inventory/:id' element={
           <RequireAuth>
-            <StockUpdate></StockUpdate>
+            <Update></Update>
           </RequireAuth>
         }></Route>
         <Route path='/sign-in' element={<SignIn></SignIn>}></Route>
@@ -29,6 +30,7 @@ function App() {
 
           </RequireAuth>
         }></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

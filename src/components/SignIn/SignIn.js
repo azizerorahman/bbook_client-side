@@ -73,10 +73,22 @@ const SignIn = () => {
                 <p className='text-center gray-color sub-text'>Have no account yet? <Link to='/sign-up'>Sign up</Link></p>
                 <Form onSubmit={handleSignIn} className='pt-4'>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control className='input-field py-2' ref={emailRef} name="email" type="email" placeholder="Email" required />
+                        <Form.Control
+                            className='input-field py-2'
+                            ref={emailRef}
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            required
+                        />
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="formBasicPassword">
-                        <Form.Control className='input-field py-2' name="password" type="password" placeholder="Password" required />
+                        <Form.Control
+                            className='input-field py-2'
+                            name="password" type="password"
+                            placeholder="Password"
+                            required
+                        />
                     </Form.Group>
                     <div className='d-flex justify-content-between'>
                         <p className='text-danger mb-0 small-text'>{errorMessage}</p>
