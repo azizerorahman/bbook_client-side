@@ -9,6 +9,7 @@ import SignUp from './components/SignUp/SignUp';
 import Update from './components/Update/Update';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import NotFound from './components/NotFound/NotFound';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
 
           </RequireAuth>
         }></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

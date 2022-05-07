@@ -21,6 +21,10 @@
     color: #666666;
 }
 
+.black-color {
+    color: rgba(0, 0, 0, 0.6);
+}
+
 /* background colors */
 .primary-bg {
     background-color: #463C74;

@@ -13,7 +13,7 @@ const Book = ({ book }) => {
                 <Card.Body className='p-0'>
                     <Card.Title className='fs-4 fw-bold mt-4 mb-0 f-merriweather'>{name}</Card.Title>
                     <p className='my-1'><span className='lightergray-color'>Supplier</span> • {supplier}</p>
-                    <p className='f-inter book-description py-3'>{description}</p>
+                    <p className='f-inter black-color py-3'>{description}</p>
                 </Card.Body>
                 <Card.Footer className='p-0 bg-transparent border-0'>
                     <div className='d-flex justify-content-between fs-3 f-rasa'>

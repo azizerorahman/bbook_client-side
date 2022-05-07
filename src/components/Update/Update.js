@@ -109,7 +109,7 @@ const Update = () => {
                     </div>
                     <div>
                         <h3 className='fw-bold mb-0 f-merriweather'>{name}</h3>
-                        <p className='f-inter book-description py-3'>{description}</p>
+                        <p className='f-inter black-color py-3'>{description}</p>
                         <Table striped bordered className='mb-4'>
                             <tbody>
                                 <tr>
