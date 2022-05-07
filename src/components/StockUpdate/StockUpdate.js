@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Container, Form, Table } from 'react-bootstrap';
 import useBook from '../../hooks/useBook';
 import './StockUpdate.css'
@@ -10,12 +10,12 @@ import '@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css';
 const StockUpdate = () => {
     const [book] = useBook();
     const { _id, image, name, description, price, quantity, supplier, sold } = book;
-    const restockAmountRef = useRef(0);
 
     // delivered button
     const handleDeliveredButton = e => {
         e.preventDefault();
 
+        // confirmation popup
         confirmAlert({
             message: 'Are you sure about delivery?',
             buttons: [
@@ -52,12 +52,13 @@ const StockUpdate = () => {
     }
 
     // restock button
-    const handleRestockButton = e => {
+    const handleRestock = e => {
         e.preventDefault();
 
-        const restockAmount = restockAmountRef.current.value;
+        const restockAmount = e.target.amount.value;
         if (restockAmount <= 0) {
             toast.error('Please, Enter a number greater than 0 (Zero).')
+            e.target.reset();
             return;
         }
         else {
@@ -83,6 +84,7 @@ const StockUpdate = () => {
                                 .then(res => res.json())
                                 .then(() => {
                                     toast.success(`${name} restocked successfully.`);
+                                    e.target.reset();
                                 })
 
                         }
@@ -132,11 +134,12 @@ const StockUpdate = () => {
                     </Table>
                     <button onClick={handleDeliveredButton} className='border-0 w-100 mb-4 text-white py-2 px-4 rounded-3 fw-bold f-merriweather primary-bg delivered-button'>Delivered</button>
                     <h5 className='fw-bold fs-6 f-inter'>Restock {name}</h5>
-                    <Form.Group className="mb-3">
-                        <Form.Control ref={restockAmountRef} className='input-field py-2' name="stock" type="number" placeholder="Amount" required />
-                    </Form.Group>
-                    <button onClick={handleRestockButton} className='border-0 w-100 text-white py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Restock</button>
-
+                    <Form onSubmit={handleRestock}>
+                        <Form.Group className="mb-3">
+                            <Form.Control className='input-field py-2' name="amount" type="number" placeholder="Amount" required />
+                        </Form.Group>
+                        <button className='border-0 w-100 text-white py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Restock</button>
+                    </Form>
                 </div>
             </div>
             <ToastContainer />
