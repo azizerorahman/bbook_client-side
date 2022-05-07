@@ -63,6 +63,7 @@ const Update = () => {
             return;
         }
         else {
+            // confirmation popup
             confirmAlert({
                 message: 'Are you sure you want to restock?',
                 buttons: [

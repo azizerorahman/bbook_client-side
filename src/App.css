@@ -73,6 +73,10 @@
     box-shadow: 0 0 0 0.25rem rgb(180 213 30 / 25%);
 }
 
+.link-button:focus {
+    box-shadow: none;
+}
+
 /* input field */
 .input-field {
     border: 2px solid #F5F5F5;

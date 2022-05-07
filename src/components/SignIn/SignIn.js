@@ -92,7 +92,7 @@ const SignIn = () => {
                     </Form.Group>
                     <div className='d-flex justify-content-between'>
                         <p className='text-danger mb-0 small-text'>{errorMessage}</p>
-                        <Button onClick={handleResetPassword} className='border-0 p-0 reset-button' variant="link">Reset Password</Button>
+                        <Button onClick={handleResetPassword} className='border-0 p-0 reset-button link-button' variant="link">Reset Password</Button>
                     </div>
                     <Button className='border-0 w-100 py-2 px-4 mt-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Sign in</Button>
                 </Form>

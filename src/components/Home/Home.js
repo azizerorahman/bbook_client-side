@@ -8,6 +8,7 @@ import Recommendation from '../Recommendation/Recommendation';
 
 const Home = () => {
     const [books] = useBooks();
+
     return (
         <Container>
             <Banner></Banner>
@@ -15,7 +16,7 @@ const Home = () => {
                 <h3 className='fs-1 text-center fw-bold mb-4 primary-color f-merriweather'>Inventory</h3>
                 <Row xs={1} md={3} className="g-4 mb-4">
                     {
-                        books.map(book =>
+                        books.slice(0, 6).map(book =>
                             <Book
                                 key={book._id}
                                 book={book}

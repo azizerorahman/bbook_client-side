@@ -5,7 +5,3 @@
 .reset-button {
     font-size: 14px;
 }
-
-.reset-button:focus {
-    box-shadow: none;
-}

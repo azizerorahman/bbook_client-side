@@ -10,6 +10,7 @@ import Update from './components/Update/Update';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import NotFound from './components/NotFound/NotFound';
 import Blogs from './components/Blogs/Blogs';
+import ManageInventories from './components/ManageInventories/ManageInventories';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path='/terms-and-conditions' element={<TermsAndConditions></TermsAndConditions>}></Route>
         <Route path='/manage-inventories' element={
           <RequireAuth>
-
+            <ManageInventories></ManageInventories>
           </RequireAuth>
         }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
