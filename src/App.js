@@ -14,8 +14,23 @@ import ManageInventories from './components/ManageInventories/ManageInventories'
 import AddBook from './components/AddBook/AddBook';
 import { ToastContainer } from 'react-toastify';
 import MyBooks from './components/MyBooks/MyBooks';
+import { useEffect, useState } from 'react';
+import Loading from './components/Loading/Loading';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch('https://hidden-brook-68612.herokuapp.com/books')
+      .then(res => res.json())
+      .then(json => {
+        setLoading(false);
+      })
+  }, []);
+
+  if (loading) {
+    return <Loading></Loading>
+  }
+
   return (
     <div className="App">
       <Header></Header>
