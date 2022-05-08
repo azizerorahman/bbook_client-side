@@ -7,6 +7,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 import './SignIn.css';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -96,6 +97,7 @@ const SignIn = () => {
                     </div>
                     <Button className='border-0 w-100 py-2 px-4 mt-4 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Sign in</Button>
                 </Form>
+                <SocialLogin></SocialLogin>
             </div>
             <ToastContainer />
         </section>
