@@ -17,14 +17,14 @@ const Footer = () => {
         <footer className='footer'>
             <Container className='py-5'>
                 <Row>
-                    <Col md={6} xs={12} className='mt-4 mt-md-0 align-items-center align-items-md-start d-flex order-md-0 order-2 flex-column'>
+                    <Col md={6} xs={12} className='mt-4 mt-md-0 align-items-center align-items-md-start d-flex order-md-0 order-2 flex-column justify-content-between'>
                         <div className='d-flex'>
                             <Link to='/' className="navbar-brand py-1 d-flex flex-column align-items-center align-items-md-start">
                                 <img className='navbar-logo' src={logo} alt="logo" />
                                 <span className='m-0 primary-color tag-line'>A warehouse of <span className='secondary-color'>books.</span></span>
                             </Link>
                         </div>
-                        <small className='f-poppins mt-md-4 mt-2 lightgray-color'>&copy; {year} BBook. All rights reserved.</small>
+                        <small className='f-poppins mt-md-0 mt-2 lightgray-color'>&copy; {year} BBook. All rights reserved.</small>
                     </Col>
                     <Col md={3} xs={12} className='mt-4 mt-md-0 d-flex order-1 flex-column align-items-center align-items-md-start'>
                         <h4 className='f-merriweather navigation-title'>Navigation</h4>
@@ -43,14 +43,14 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col md={3} xs={12} className='align-items-center align-items-md-start d-flex order-md-2 order-0 flex-column justify-content-between'>
+                    <Col md={3} xs={12} className='align-items-center align-items-md-start d-flex order-md-2 order-0 flex-column'>
                         <div>
                             <p className='f-merriweather text-center text-md-start mb-1'>BBook LTD.</p>
                             <p className='lightgray-color text-center text-md-start f-merriweather m-0'>admin@bbook.com</p>
                             <p className='lightgray-color text-center text-md-start f-merriweather m-0'>Jln. Stiabudhi No. 193</p>
                             <p className='lightgray-color text-center text-md-start f-merriweather m-0'>Bandung Indonesia</p>
                         </div>
-                        <div className='mt-3 mt-md-0 d-flex gap-3'>
+                        <div className='mt-3 d-flex gap-3'>
                             <a href="https://www.facebook.com/bookwarehouse1/" className='rounded-pill secondary-bg'>
                                 <img className='p-2' src={facebookIcon} alt="facebook" />
                             </a>

@@ -15,7 +15,7 @@ const Recommendation = () => {
         e.target.reset();
     }
     return (
-        <Container className='mt-4 mb-5 py-5 px-md-0 px-4 recommendation-section'>
+        <Container className='mt-4 mb-5 py-5 px-4 recommendation-section'>
             <h1 className='fw-bold my-5 text-center display-5 primary-color heading-text f-merriweather'>Recommended books <br /> from you to add</h1>
             <Form onSubmit={handleSubmitButton} className='d-flex flex-column flex-md-row justify-content-center align-items-center pt-4 pb-md-5 pb-1 gap-3'>
                 <Form.Group className='w-md-50 w-100'>
