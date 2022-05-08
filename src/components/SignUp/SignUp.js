@@ -54,7 +54,21 @@ const SignUp = () => {
         if (test) {
             await createUserWithEmailAndPassword(email, password);
             await updateProfile({ displayName: name });
-            navigate('/home');
+
+            // send data to server
+            fetch('https://hidden-brook-68612.herokuapp.com/token', {
+                method: 'POST',
+                body: JSON.stringify({ email }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem("accessToken", data.accessToken);
+                    navigate('/home');
+                });
+
         }
         else {
             toast.error('Please enter at least 8 characters or numbers in the password.')
