@@ -6,8 +6,8 @@ import './Banner.css'
 const Banner = () => {
     return (
         <Container className='mt-4'>
-            <Row className='align-items-center p-5 banner'>
-                <Col sm={7}>
+            <Row className='align-items-center p-5 banner gap-5 gap-md-0'>
+                <Col sm={7} className='pt-5 pt-md-0'>
                     <h1 className='fw-bold display-5 primary-color f-merriweather'>Book is a <br /> window to the World</h1>
                     <h4 className='my-4 f-merriweather banner-text'>Wake up your dream by reading a book every day</h4>
                     <a href='https://openlibrary.org/'>
