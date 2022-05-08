@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Form } from 'react-bootstrap';
 import './Recommendation.css'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Recommendation = () => {
@@ -23,7 +23,6 @@ const Recommendation = () => {
                 </Form.Group>
                 <button className='border-0 text-white py-3 px-5 fw-bold f-merriweather secondary-bg button recommendation-button' type='submit'>Submit</button>
             </Form>
-            <ToastContainer />
         </Container>
     );
 };

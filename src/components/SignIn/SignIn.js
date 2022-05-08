@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 import './SignIn.css';
@@ -99,7 +99,6 @@ const SignIn = () => {
                 </Form>
                 <SocialLogin></SocialLogin>
             </div>
-            <ToastContainer />
         </section>
     );
 };

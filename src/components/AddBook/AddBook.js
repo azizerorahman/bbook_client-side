@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddBook = () => {
@@ -134,7 +134,6 @@ const AddBook = () => {
                     <Button className='border-0 w-100 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button' type='submit'>Add Book</Button>
                 </Form>
             </div>
-            <ToastContainer />
         </Container>
     );
 };

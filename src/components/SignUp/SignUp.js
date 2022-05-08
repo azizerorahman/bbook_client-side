@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../firebase.init';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
@@ -104,7 +104,6 @@ const SignUp = () => {
                 </Form>
                 <SocialLogin></SocialLogin>
             </div>
-            <ToastContainer />
         </section>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Form, Table } from 'react-bootstrap';
 import useBook from '../../hooks/useBook';
 import './Update.css'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from '@ergisgjergji/react-confirm-alert';
 import '@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css';
@@ -147,7 +147,6 @@ const Update = () => {
                 </div>
             </Container>
             <ManageInventoriesButton></ManageInventoriesButton>
-            <ToastContainer />
         </section>
     );
 };
