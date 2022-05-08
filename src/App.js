@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     fetch('https://hidden-brook-68612.herokuapp.com/books')
       .then(res => res.json())
-      .then(json => {
+      .then(() => {
         setLoading(false);
       })
   }, []);
