@@ -5,6 +5,7 @@ import Banner from '../Banner/Banner';
 import Book from '../Book/Book';
 import ManageInventoriesButton from '../ManageInventoriesButton/ManageInventoriesButton';
 import Recommendation from '../Recommendation/Recommendation';
+import UserReviews from '../UserReviews/UserReviews';
 
 const Home = () => {
     const [books] = useBooks();
@@ -27,6 +28,7 @@ const Home = () => {
                 <ManageInventoriesButton></ManageInventoriesButton>
             </section>
             <Recommendation></Recommendation>
+            <UserReviews></UserReviews>
         </Container>
     );
 };
