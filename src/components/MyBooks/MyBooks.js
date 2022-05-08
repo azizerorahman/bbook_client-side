@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, Container, Table } from 'react-bootstrap';
-import useBooks from '../../hooks/useBooks';
+import { Container, Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import useMyBooks from '../../hooks/useMyBooks';
 import Item from '../Item/Item';
-import { Link } from 'react-router-dom';
 
-const ManageInventories = () => {
-    const [books] = useBooks();
+const MyBooks = () => {
+    const [user] = useAuthState(auth);
+    const email = user.email;
+
+    const [myBooks] = useMyBooks(email);
 
     return (
         <Container className='my-5'>
@@ -22,22 +26,17 @@ const ManageInventories = () => {
                 </thead>
                 <tbody>
                     {
-                        books.map(book =>
+                        myBooks.map(myBook =>
                             <Item
-                                key={book._id}
-                                book={book}
+                                key={myBook._id}
+                                book={myBook}
                             ></Item>
                         )
                     }
                 </tbody>
             </Table>
-            <div className='d-flex justify-content-center pt-4'>
-                <Link to='/add-book' >
-                    <Button className='border-0 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Add New Item</Button>
-                </Link>
-            </div>
         </Container>
     );
 };
 
-export default ManageInventories;
+export default MyBooks;

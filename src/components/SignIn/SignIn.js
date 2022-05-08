@@ -18,7 +18,6 @@ const SignIn = () => {
 
     const [
         signInWithEmailAndPassword,
-        user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -29,10 +28,6 @@ const SignIn = () => {
     ] = useSendPasswordResetEmail(auth);
 
     let errorMessage;
-
-    if (user) {
-        navigate(from, { replace: true });
-    }
 
     // loading spinner
     if (loading || sending) {
@@ -45,13 +40,27 @@ const SignIn = () => {
     }
 
     // sign in
-    const handleSignIn = e => {
+    const handleSignIn = async e => {
         e.preventDefault();
 
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+
+        // send data to server
+        fetch('http://localhost:5000/token', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.setItem("accessToken", data.accessToken);
+                navigate(from, { replace: true });
+            });
     }
 
     // reset password

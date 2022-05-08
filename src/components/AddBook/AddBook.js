@@ -14,7 +14,7 @@ const AddBook = () => {
 
         const name = e.target.name.value;
         const newBook = {
-            adderEmail: user.email,
+            email: user.email,
             name: e.target.name.value,
             quantity: e.target.quantity.value,
             sold: e.target.sold.value,
