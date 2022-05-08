@@ -27,6 +27,7 @@ function App() {
       })
   }, []);
 
+  // loading spinner
   if (loading) {
     return <Loading></Loading>
   }
