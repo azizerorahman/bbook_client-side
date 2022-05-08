@@ -13,7 +13,7 @@ const MyBooks = () => {
 
     return (
         <Container className='my-5'>
-            <Table striped bordered>
+            <Table responsive striped bordered>
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -35,6 +35,7 @@ const MyBooks = () => {
                     }
                 </tbody>
             </Table>
+            <small className='scroll-message lightgray-color'>*Scroll left to right to see full table.</small>
         </Container>
     );
 };

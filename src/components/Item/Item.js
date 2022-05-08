@@ -19,7 +19,7 @@ const Item = ({ book }) => {
                     onClick: () => {
 
                         // send updated data to server
-                        const url = `http://localhost:5000/inventory/${id}`;
+                        const url = `https://hidden-brook-68612.herokuapp.com/inventory/${id}`;
                         fetch(url, {
                             method: 'DELETE'
                         })

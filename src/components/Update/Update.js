@@ -28,7 +28,7 @@ const Update = () => {
                         const updatedInfo = { updatedQuantity, updatedSold };
 
                         // send updated data to server
-                        const url = `http://localhost:5000/inventory/${_id}`;
+                        const url = `https://hidden-brook-68612.herokuapp.com/inventory/${_id}`;
                         fetch(url, {
                             method: 'PUT',
                             headers: {
@@ -75,7 +75,7 @@ const Update = () => {
                             const updatedInfo = { updatedQuantity, updatedSold };
 
                             // send updated data to server
-                            const url = `http://localhost:5000/inventory/${_id}`;
+                            const url = `https://hidden-brook-68612.herokuapp.com/inventory/${_id}`;
                             fetch(url, {
                                 method: 'PUT',
                                 headers: {

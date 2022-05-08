@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -49,7 +49,7 @@ const SignIn = () => {
         await signInWithEmailAndPassword(email, password);
 
         // send data to server
-        fetch('http://localhost:5000/token', {
+        fetch('https://hidden-brook-68612.herokuapp.com/token', {
             method: 'POST',
             body: JSON.stringify({ email }),
             headers: {
@@ -77,8 +77,8 @@ const SignIn = () => {
     }
 
     return (
-        <section className='my-5 d-flex justify-content-center f-opensans'>
-            <div className='w-50 p-5 section-box'>
+        <Container className='my-5 d-flex justify-content-center f-opensans'>
+            <div className='w-md-50 w-100 p-5 section-box'>
                 <h1 className='fw-bold text-center heading'>Sign in here</h1>
                 <p className='text-center gray-color sub-text'>Have no account yet? <Link to='/sign-up'>Sign up</Link></p>
                 <Form onSubmit={handleSignIn} className='pt-4'>
@@ -108,7 +108,7 @@ const SignIn = () => {
                 </Form>
                 <SocialLogin></SocialLogin>
             </div>
-        </section>
+        </Container>
     );
 };
 

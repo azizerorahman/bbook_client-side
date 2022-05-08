@@ -34,7 +34,7 @@ const Header = () => {
                                     <Link className='nav-link' to="/manage-inventories">Manage Inventory</Link>
                                     <Link className='nav-link' to="/add-book">Add Book</Link>
                                     <Link className='nav-link' to="/my-books">My Books</Link>
-                                    <Button onClick={handleSignOut} className='border-0 ms-3 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Sign Out</Button>
+                                    <Button onClick={handleSignOut} className='border-0 ms-md-3 ms-0 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Sign Out</Button>
                                 </Nav>
                                 :
                                 <Nav>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './SignUp.css'
@@ -63,8 +63,8 @@ const SignUp = () => {
     }
 
     return (
-        <section className='my-5 d-flex justify-content-center f-opensans'>
-            <div className='w-50 p-5 section-box'>
+        <Container className='my-5 d-flex justify-content-center f-opensans'>
+            <div className='w-md-50 w-100 p-5 section-box'>
                 <h1 className='fw-bold text-center heading'>Create account</h1>
                 <p className='text-center gray-color sub-text'>Already have an account? <Link to='/sign-in'>Sign in</Link></p>
                 <Form onSubmit={handleSignUp} className='pt-4'>
@@ -104,7 +104,7 @@ const SignUp = () => {
                 </Form>
                 <SocialLogin></SocialLogin>
             </div>
-        </section>
+        </Container>
     );
 };
 

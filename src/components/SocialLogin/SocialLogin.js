@@ -57,10 +57,10 @@ const SocialLogin = () => {
                 </Col>
                 <Col className='line'></Col>
             </Row>
-            <Container className='d-flex justify-content-center gap-3'>
+            <Container className='d-flex flex-column flex-sm-row justify-content-center gap-sm-3 gap-0'>
                 <Button
                     onClick={() => signInWithGoogle()}
-                    className='d-flex align-items-center mb-3 py-2 px-4 rounded-3 fw-bold f-merriweather primary-color social-button'
+                    className='d-flex align-items-center justify-content-center mb-3 py-2 px-4 rounded-3 fw-bold f-merriweather primary-color social-button'
                     variant="white"
                 >
                     <img className='me-2' src={googleIcon} alt='google' />
@@ -68,7 +68,7 @@ const SocialLogin = () => {
                 </Button>
                 <Button
                     onClick={() => signInWithGithub()}
-                    className='d-flex align-items-center mb-3 py-2 px-4 rounded-3 fw-bold f-merriweather primary-color social-button'
+                    className='d-flex align-items-center justify-content-center mb-3 py-2 px-4 rounded-3 fw-bold f-merriweather primary-color social-button'
                     variant="white"
                 >
                     <img className='me-2' src={githubIcon} alt='github' />

@@ -25,7 +25,7 @@ const AddBook = () => {
         }
 
         // send data to server
-        fetch('http://localhost:5000/books', {
+        fetch('https://hidden-brook-68612.herokuapp.com/books', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const AddBook = () => {
 
     return (
         <Container className='my-5 d-flex justify-content-center'>
-            <div className='w-50 p-5 section-box'>
+            <div className='w-md-50 w-100 p-5 section-box'>
                 <Form onSubmit={handleAddBookButton} className='pt-4'>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Control

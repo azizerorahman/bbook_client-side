@@ -36,7 +36,7 @@ const Blogs = () => {
             </div>
             <div className='mb-5'>
                 <h3 className='fw-bold fs-4 mb-3 f-merriweather'>When should you use Node.js and when should you use MongoDB?</h3>
-                <p className='f-inter black-color'>Node.js and MongoDB are totally two different things. NodeJS is a JavaScript runtime environment. It's helps JavaScript to run outside of server. It's used in server-side development. On the other hand, MongoDB is a NoSQL database, where we can store data and Node.js helps to connect client-side to database by it's server site. For building a website I needed a database to store the data or information so here I can use MongoDB, to connect with MongoDB I need a connector, so here I can use Node.js which will help my website to run outside of server.</p>
+                <p className='f-inter black-color'>Node.js and MongoDB are totally two different things. NodeJS is a JavaScript runtime environment. It's helps JavaScript to run outside of server. It's used in server-side development. On the other hand, MongoDB is a NoSQL database, where we can store data and Node.js helps to connect client-side to database by it's server site. For building a website I needed a database to store my data or information so here I can use MongoDB, to connect with MongoDB I need a connector, so here I can use Node.js which will help my website to run outside of server.</p>
             </div>
             <div className='mb-5'>
                 <h3 className='fw-bold fs-4 mb-3 f-merriweather'>Difference between SQL and NoSQL databases</h3>
@@ -50,7 +50,7 @@ const Blogs = () => {
                     <tbody>
                         <tr>
                             <td>Databases are categorized as Relational Database Management System (RDBMS).</td>
-                            <td>NoSQL databases are categorized as Non-relational or distributed database system.</td>
+                            <td>Databases are categorized as Non-relational or distributed database system.</td>
                         </tr>
                         <tr>
                             <td>Fixed or static schema</td>
@@ -61,16 +61,12 @@ const Blogs = () => {
                             <td>Can be document based, key-value pairs, graph databases</td>
                         </tr>
                         <tr>
-                            <td>Capable to add HTML &#38; play with the DOM.</td>
-                            <td>Not capable to add HTML tags</td>
-                        </tr>
-                        <tr>
                             <td>Vertically scalable</td>
                             <td>Horizontally scalable</td>
                         </tr>
                         <tr>
                             <td>Not suitable for hierarchical data storage.</td>
-                            <td>suitable for the hierarchical data store as it supports key-value pair method.</td>
+                            <td>Suitable for the hierarchical data store as it supports key-value pair method.</td>
                         </tr>
                         <tr>
                             <td>Such as: Oracle, MySQL, Microsoft SQL Server etc.</td>
