@@ -32,7 +32,7 @@ const Header = () => {
                             user ?
                                 <Nav>
                                     <Link className='nav-link' to="/manage-inventories">Manage Inventory</Link>
-                                    <Link className='nav-link' to="/add-item">Add Item</Link>
+                                    <Link className='nav-link' to="/inventory/add-book">Add Book</Link>
                                     <Link className='nav-link' to="/my-items">My Items</Link>
                                     <Button onClick={handleSignOut} className='border-0 ms-3 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Sign Out</Button>
                                 </Nav>

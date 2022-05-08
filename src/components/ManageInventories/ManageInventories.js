@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Button, Container, Table } from 'react-bootstrap';
 import useBooks from '../../hooks/useBooks';
 import Item from '../Item/Item';
 import { confirmAlert } from '@ergisgjergji/react-confirm-alert';
 import '@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Link } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [books] = useBooks();
@@ -27,7 +28,7 @@ const ManageInventories = () => {
                             .then(res => res.json())
                             .then(data => {
                                 if (data.deletedCount > 0) {
-                                    toast.success(`${name} Deleted.`);
+                                    toast.success(`${name} deleted.`);
                                 }
                             })
                     }
@@ -66,6 +67,11 @@ const ManageInventories = () => {
                     }
                 </tbody>
             </Table>
+            <div className='d-flex justify-content-center pt-4'>
+                <Link to='/inventory/add-book' >
+                    <Button className='border-0 py-2 px-4 rounded-3 fw-bold f-merriweather secondary-bg button'>Add New Item</Button>
+                </Link>
+            </div>
             <ToastContainer />
         </Container>
     );

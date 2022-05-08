@@ -11,6 +11,7 @@ import TermsAndConditions from './components/TermsAndConditions/TermsAndConditio
 import NotFound from './components/NotFound/NotFound';
 import Blogs from './components/Blogs/Blogs';
 import ManageInventories from './components/ManageInventories/ManageInventories';
+import AddBook from './components/AddBook/AddBook';
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
         <Route path='/manage-inventories' element={
           <RequireAuth>
             <ManageInventories></ManageInventories>
+          </RequireAuth>
+        }></Route>
+        <Route path='/inventory/add-book' element={
+          <RequireAuth>
+            <AddBook></AddBook>
           </RequireAuth>
         }></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
