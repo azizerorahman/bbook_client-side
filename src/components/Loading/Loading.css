@@ -1,3 +1,12 @@
-.spinner-box {
-    height: 100vh;
+.h-full {
+  height: 100vh;
+}
+
+.h-half {
+  height: 20rem;
+}
+
+.h-small {
+  padding-top: 2.5rem;
+  height: 15rem;
 }

@@ -28,7 +28,12 @@ const Book = ({ book }) => {
               Quantity: <span className="primary-color">{quantity}</span>
             </p>
           </div>
-          <Link to={`/inventory/${_id}`}>
+          <Link
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+            to={`/inventory/${_id}`}
+          >
             <Button className="border-0 py-2 px-4 mt-3 rounded-3 fw-bold f-merriweather secondary-bg button">
               Update
             </Button>

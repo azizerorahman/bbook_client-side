@@ -18,16 +18,18 @@ const Home = () => {
         <h3 className="fs-1 text-center fw-bold mb-4 primary-color f-merriweather">
           Inventory
         </h3>
-        {books ? (
-          <Row xs={1} md={3} className="g-4 mb-4">
-            {books.slice(0, 6).map((book) => (
-              <Book key={book._id} book={book}></Book>
-            ))}
-          </Row>
+        {books.length === 0 ? (
+          <Loading height={"h-half"} refresh />
         ) : (
-          <Loading />
+          <>
+            <Row xs={1} md={3} className="g-4 mb-4">
+              {books.slice(0, 6).map((book) => (
+                <Book key={book._id} book={book}></Book>
+              ))}
+            </Row>
+            <ManageInventoriesButton></ManageInventoriesButton>
+          </>
         )}
-        <ManageInventoriesButton></ManageInventoriesButton>
       </section>
       <Recommendation></Recommendation>
       <UserReviews></UserReviews>

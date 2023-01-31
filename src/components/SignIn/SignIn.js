@@ -1,16 +1,17 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../Loading/Loading";
 import "./SignIn.css";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useToken from "../../hooks/useToken";
+import auth from "../../firebase.init";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -19,16 +20,25 @@ const SignIn = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const [signInWithEmailAndPassword, loading, error] =
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  const [token] = useToken(user);
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+      window.scrollTo(0, 0);
+    }
+  }, [token, from, navigate]);
 
   let errorMessage;
 
   // loading spinner
   if (loading || sending) {
-    return <Loading></Loading>;
+    return <Loading height={"h-small"}></Loading>;
   }
 
   // display error
@@ -44,20 +54,6 @@ const SignIn = () => {
     const password = e.target.password.value;
 
     await signInWithEmailAndPassword(email, password);
-
-    // send data to server
-    fetch("https://bbook.onrender.com/token", {
-      method: "POST",
-      body: JSON.stringify({ email }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem("accessToken", data.accessToken);
-        navigate(from, { replace: true });
-      });
   };
 
   // reset password
@@ -100,7 +96,20 @@ const SignIn = () => {
             />
           </Form.Group>
           <div className="d-flex justify-content-between">
-            <p className="text-danger mb-0 small-text">{errorMessage}</p>
+            <p className="text-danger mb-0 small-text">
+              {error &&
+                errorMessage
+                  .substring(22)
+                  .replace(/[()']+/g, "")
+                  .replace(/[-']+/g, " ")
+                  .charAt(0)
+                  .toUpperCase() +
+                  errorMessage
+                    .substring(22)
+                    .replace(/[()']+/g, "")
+                    .replace(/[-']+/g, " ")
+                    .slice(1)}
+            </p>
             <Button
               onClick={handleResetPassword}
               className="border-0 p-0 reset-button link-button"

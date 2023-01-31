@@ -104,7 +104,7 @@ const Update = () => {
   return (
     <section className="pb-5">
       <Container className="my-4">
-        <div className="d-flex gap-4 align-items-center">
+        <div className="d-flex flex-column flex-md-row gap-4 align-items-center">
           <div>
             <img src={image} alt={name} />
           </div>

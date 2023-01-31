@@ -25,7 +25,7 @@ function App() {
 
   // loading spinner
   if (loading) {
-    return <Loading />;
+    return <Loading height={"h-full"} />;
   }
 
   return (

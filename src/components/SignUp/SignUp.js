@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -11,14 +11,24 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const navigate = useNavigate();
 
-  const [createUserWithEmailAndPassword, loading, error] =
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const [token] = useToken(user);
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+      window.scrollTo(0, 0);
+    }
+  }, [navigate, token]);
 
   let errorMessage;
 
@@ -34,7 +44,7 @@ const SignUp = () => {
 
   // loading spinner
   if (loading || updating) {
-    return <Loading></Loading>;
+    return <Loading height={"h-small"}></Loading>;
   }
 
   // sign up
@@ -50,20 +60,6 @@ const SignUp = () => {
     if (test) {
       await createUserWithEmailAndPassword(email, password);
       await updateProfile({ displayName: name });
-
-      // send data to server
-      fetch("https://bbook.onrender.com/token", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          localStorage.setItem("accessToken", data.accessToken);
-          navigate("/home");
-        });
     } else {
       toast.error(
         "Please enter at least 8 characters or numbers in the password."
