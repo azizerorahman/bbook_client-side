@@ -18,7 +18,7 @@ const Item = ({ book }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `https://bbook.onrender.com/inventory/${id}`;
+            const url = `http://localhost:5000/inventory/${id}`;
             fetch(url, {
               method: "DELETE",
             })

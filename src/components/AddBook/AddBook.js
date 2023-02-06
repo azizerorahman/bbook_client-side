@@ -25,7 +25,7 @@ const AddBook = () => {
     };
 
     // send data to server
-    fetch("https://bbook.onrender.com/books", {
+    fetch("http://localhost:5000/books", {
       method: "POST",
       headers: {
         "content-type": "application/json",
