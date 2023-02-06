@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const useUserReviews = () => {
   const [userReviews, setUserReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/user-reviews")
+    fetch("https://bbook.onrender.com/user-reviews")
       .then((res) => res.json())
       .then((data) => setUserReviews(data));
   }, []);

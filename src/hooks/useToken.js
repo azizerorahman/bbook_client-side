@@ -5,7 +5,7 @@ const useToken = (user) => {
   useEffect(() => {
     const email = user?.user.email;
     if (email) {
-      fetch("http://localhost:5000/token", {
+      fetch("https://bbook.onrender.com/token", {
         method: "POST",
         body: JSON.stringify({ email }),
         headers: {
