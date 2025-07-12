@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import banner from '../../images/banner-cover.svg';
 import './Banner.css'

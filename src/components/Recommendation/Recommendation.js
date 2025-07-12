@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Form } from 'react-bootstrap';
 import './Recommendation.css'
 import { toast } from 'react-toastify';

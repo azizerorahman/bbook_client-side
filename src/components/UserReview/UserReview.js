@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './UserReview.css'
 import quotation from '../../images/quotation.png'

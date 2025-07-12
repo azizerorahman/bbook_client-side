@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./SocialLogin.css";
 import { useLocation, useNavigate } from "react-router-dom";

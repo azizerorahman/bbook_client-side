@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { FaInfoCircle } from "react-icons/fa";
 import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
@@ -15,6 +16,7 @@ import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [isChina, setIsChina] = useState(false);
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -22,6 +24,22 @@ const SignUp = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   const [token] = useToken(user);
+
+  useEffect(() => {
+    const checkUserLocation = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+        if (data.country_code === "CN") {
+          setIsChina(true);
+        }
+      } catch (error) {
+        console.error("Error detecting location:", error);
+      }
+    };
+
+    checkUserLocation();
+  }, []);
 
   useEffect(() => {
     if (token) {
@@ -68,9 +86,38 @@ const SignUp = () => {
     }
   };
 
+  const renderFirebaseTooltip = (props) => (
+    <Tooltip id="firebase-tooltip" {...props}>
+      This authentication system uses Firebase/Google services which may not
+      work properly in China.
+    </Tooltip>
+  );
+
   return (
     <Container className="my-5 d-flex justify-content-center f-opensans">
-      <div className="w-md-50 w-100 p-5 section-box">
+      <div className="w-md-50 w-100 p-5 section-box position-relative">
+        {isChina ? (
+          <div className="alert alert-warning mb-3 py-2 small">
+            <FaInfoCircle className="me-2" />
+            You need to use a VPN to access Firebase/Google services in China.
+          </div>
+        ) : (
+          <div
+            className="position-absolute"
+            style={{ top: "6px", right: "10px" }}
+          >
+            <OverlayTrigger
+              placement="left"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderFirebaseTooltip}
+            >
+              <span style={{ cursor: "pointer" }}>
+                <FaInfoCircle color="#0d6efd" />
+              </span>
+            </OverlayTrigger>
+          </div>
+        )}
+
         <h1 className="fw-bold text-center heading">Create account</h1>
         <p className="text-center gray-color sub-text">
           Already have an account? <Link to="/sign-in">Sign in</Link>

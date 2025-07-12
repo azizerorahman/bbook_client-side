@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "react-bootstrap";
 import deleteIcon from "../../icons/delete-icon.png";
 import { confirmAlert } from "@ergisgjergji/react-confirm-alert";
@@ -6,7 +5,7 @@ import "@ergisgjergji/react-confirm-alert/src/react-confirm-alert.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Item = ({ book }) => {
+const Item = ({ book, refetchBooks }) => {
   const { _id, name, price, quantity, supplier, sold } = book;
 
   // delete button
@@ -26,6 +25,10 @@ const Item = ({ book }) => {
               .then((data) => {
                 if (data.deletedCount > 0) {
                   toast.success(`${name} deleted.`);
+                  // Refetch the books list to update the UI
+                  if (refetchBooks) {
+                    refetchBooks();
+                  }
                 }
               });
           },

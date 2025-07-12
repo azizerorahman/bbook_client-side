@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import useUserReviews from '../../hooks/useUserReviews';
 import UserReview from '../UserReview/UserReview';

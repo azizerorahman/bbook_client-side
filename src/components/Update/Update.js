@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Form, Table } from "react-bootstrap";
 import useBook from "../../hooks/useBook";
 import "./Update.css";

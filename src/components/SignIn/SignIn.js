@@ -1,5 +1,13 @@
-import React, { useEffect, useRef } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  Container,
+  Form,
+  OverlayTrigger,
+  Tooltip,
+  Badge,
+} from "react-bootstrap";
+import { FaInfoCircle, FaUserCheck } from "react-icons/fa";
 import {
   useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
@@ -17,6 +25,8 @@ const SignIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const [isChina, setIsChina] = useState(false);
 
   const from = location.state?.from?.pathname || "/";
 
@@ -26,6 +36,22 @@ const SignIn = () => {
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
   const [token] = useToken(user);
+
+  useEffect(() => {
+    const checkUserLocation = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+        if (data.country_code === "CN") {
+          setIsChina(true);
+        }
+      } catch (error) {
+        console.error("Error detecting location:", error);
+      }
+    };
+
+    checkUserLocation();
+  }, []);
 
   useEffect(() => {
     if (token) {
@@ -68,9 +94,69 @@ const SignIn = () => {
     }
   };
 
+  // Fill test credentials
+  const fillTestCredentials = () => {
+    // Test account credentials
+    const testEmail = "test@manager.com";
+    const testPassword = "testM@nager";
+
+    // Fill the form fields
+    emailRef.current.value = testEmail;
+    passwordRef.current.value = testPassword;
+
+    toast.info("Test credentials filled! Click 'Sign in' to continue.", {
+      position: "top-center",
+      autoClose: 3000,
+    });
+  };
+
+  const renderFirebaseTooltip = (props) => (
+    <Tooltip id="firebase-tooltip" {...props}>
+      This authentication system uses Firebase/Google services which may not
+      work properly in China.
+    </Tooltip>
+  );
+
   return (
     <Container className="my-5 d-flex justify-content-center f-opensans">
-      <div className="w-md-50 w-100 p-5 section-box">
+      <div className="w-md-50 w-100 p-5 section-box position-relative">
+        {isChina ? (
+          <div className="alert alert-warning mb-3 py-2 small">
+            <FaInfoCircle className="me-2" />
+            You need to use a VPN to access Firebase/Google services in China.
+          </div>
+        ) : (
+          <div
+            className="position-absolute"
+            style={{ top: "6px", right: "10px" }}
+          >
+            <OverlayTrigger
+              placement="left"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderFirebaseTooltip}
+            >
+              <span style={{ cursor: "pointer" }}>
+                <FaInfoCircle color="#0d6efd" />
+              </span>
+            </OverlayTrigger>
+          </div>
+        )}
+
+        <div
+          className="position-absolute"
+          style={{ top: "10px", left: "10px" }}
+        >
+          <Badge
+            bg="secondary"
+            style={{ cursor: "pointer", fontWeight: "normal" }}
+            onClick={fillTestCredentials}
+            className="d-flex align-items-center f-opensans"
+
+          >
+            <FaUserCheck className="me-1" /> Test Account
+          </Badge>
+        </div>
+
         <h1 className="fw-bold text-center heading">Sign in here</h1>
         <p className="text-center gray-color sub-text">
           Have no account yet? <Link to="/sign-up">Sign up</Link>
@@ -89,6 +175,7 @@ const SignIn = () => {
           <Form.Group className="mb-1" controlId="formBasicPassword">
             <Form.Control
               className="input-field py-2"
+              ref={passwordRef}
               name="password"
               type="password"
               placeholder="Password"

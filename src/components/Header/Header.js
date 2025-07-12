@@ -1,5 +1,4 @@
 import { signOut } from "firebase/auth";
-import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
@@ -34,8 +33,8 @@ const Header = () => {
               <Link className="nav-link" to="/">
                 Home
               </Link>
-              <Link className="nav-link" to="/blogs">
-                Blogs
+              <Link className="nav-link" to="/about-us">
+                About Us
               </Link>
             </Nav>
             {user ? (

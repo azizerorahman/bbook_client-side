@@ -1,4 +1,3 @@
-import React from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";

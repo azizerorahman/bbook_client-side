@@ -9,7 +9,7 @@ import SignUp from "./components/SignUp/SignUp";
 import Update from "./components/Update/Update";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 import NotFound from "./components/NotFound/NotFound";
-import Blogs from "./components/Blogs/Blogs";
+import AboutUs from "./components/AboutUs/AboutUs";
 import ManageInventories from "./components/ManageInventories/ManageInventories";
 import AddBook from "./components/AddBook/AddBook";
 import { ToastContainer } from "react-toastify";
@@ -34,7 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
         <Route
           path="/manage-inventories"
           element={

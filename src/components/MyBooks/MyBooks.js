@@ -1,5 +1,4 @@
 import { signOut } from "firebase/auth";
-import React from "react";
 import { Container, Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";

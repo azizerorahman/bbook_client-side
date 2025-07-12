@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row } from "react-bootstrap";
 import useBooks from "../../hooks/useBooks";
 import Banner from "../Banner/Banner";

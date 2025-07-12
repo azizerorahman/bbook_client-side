@@ -1,4 +1,3 @@
-import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Footer.css";
@@ -64,9 +63,9 @@ const Footer = () => {
                     window.scrollTo(0, 0);
                   }}
                   className="text-decoration-none lightgray-color f-merriweather"
-                  to="/blogs"
+                  to="/about-us"
                 >
-                  Blogs
+                  About Us
                 </Link>
               </div>
               <div>

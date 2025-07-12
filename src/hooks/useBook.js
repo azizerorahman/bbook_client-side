@@ -10,7 +10,7 @@ const useBook = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBook(data));
-  }, [id, book]);
+  }, [id]);
   return [book, setBook];
 };
 
