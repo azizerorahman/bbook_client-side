@@ -5,7 +5,7 @@ const useBooks = () => {
   const [refetch, setRefetch] = useState(0);
 
   useEffect(() => {
-    fetch("https://bbook.onrender.com/books")
+    fetch("https://68933934002e1bfd3079.syd.appwrite.run/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, [refetch]);

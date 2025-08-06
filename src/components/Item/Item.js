@@ -17,7 +17,7 @@ const Item = ({ book, refetchBooks }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `https://bbook.onrender.com/inventory/${id}`;
+            const url = `https://68933934002e1bfd3079.syd.appwrite.run/inventory/${id}`;
             fetch(url, {
               method: "DELETE",
             })

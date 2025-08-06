@@ -20,7 +20,9 @@ import Loading from "./components/Loading/Loading";
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://bbook.onrender.com/").then(() => setLoading(false));
+    fetch("https://68933934002e1bfd3079.syd.appwrite.run/").then(() =>
+      setLoading(false)
+    );
   }, []);
 
   // loading spinner

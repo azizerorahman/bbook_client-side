@@ -6,7 +6,7 @@ const useBook = () => {
 
   const [book, setBook] = useState([]);
   useEffect(() => {
-    const url = `https://bbook.onrender.com/inventory/${id}`;
+    const url = `https://68933934002e1bfd3079.syd.appwrite.run/inventory/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBook(data));

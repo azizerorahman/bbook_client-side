@@ -28,7 +28,7 @@ const Update = () => {
             const updatedInfo = { updatedQuantity, updatedSold };
 
             // send updated data to server
-            const url = `https://bbook.onrender.com/inventory/${_id}`;
+            const url = `https://68933934002e1bfd3079.syd.appwrite.run/inventory/${_id}`;
             fetch(url, {
               method: "PUT",
               headers: {
@@ -75,7 +75,7 @@ const Update = () => {
               const updatedInfo = { updatedQuantity, updatedSold };
 
               // send updated data to server
-              const url = `https://bbook.onrender.com/inventory/${_id}`;
+              const url = `https://68933934002e1bfd3079.syd.appwrite.run/inventory/${_id}`;
               fetch(url, {
                 method: "PUT",
                 headers: {
